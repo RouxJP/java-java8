@@ -39,7 +39,7 @@ public class Method_02_Test {
 
         public String format() {
            	String chaine = IDao.super.format();
-            return "DaoA" + chaine + "persons";
+            return "DaoA " + chaine + " persons";
         }
 
 
@@ -53,7 +53,6 @@ public class Method_02_Test {
 
         // TODO invoquer la méthode format() pour que le test soit passant
         String result = daoA.format();
-        System.out.println(result);
-        "DaoA[20 persons]".equals(result);
+        assert "DaoA [20] persons".equals(result);
     }
 }
