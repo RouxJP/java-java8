@@ -16,16 +16,10 @@ public class Method_02_Test {
     interface IDao {
         List<Person> findAll();
 
-        default int sumAge() {
-        	int age = 0;
-        	for( Person person:findAll()) {
-        		age += person.getAge();
-        	}
-        	return age;
-        }
-
+  
         default String format() {
-        	return "[" + sumAge() + "]";
+        	List<Person> lstPersone = findAll();
+        	return "[" + lstPersone.size() + "]";
         }
         // créer une méthode String format()
         // la méthode retourne une chaîne de la forme [<nb_personnes> persons]
@@ -44,7 +38,8 @@ public class Method_02_Test {
         }
 
         public String format() {
-        	return "[DaoA" + sumAge() + "]";
+           	String chaine = IDao.super.format();
+            return "DaoA" + chaine + "persons";
         }
 
 
@@ -58,7 +53,7 @@ public class Method_02_Test {
 
         // TODO invoquer la méthode format() pour que le test soit passant
         String result = daoA.format();
-
+        System.out.println(result);
         "DaoA[20 persons]".equals(result);
     }
 }
