@@ -45,7 +45,7 @@ public class Method_01_Test {
     @Test
     public void test_daoA_sumAge() throws Exception {
 
-        DaoA daoA = new DaoA();
+         DaoA daoA = new DaoA();
 
         // TODO invoquer la méthode sumAge pour que le test soit passant
         int result = 0;

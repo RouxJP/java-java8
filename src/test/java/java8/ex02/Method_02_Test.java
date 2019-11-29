@@ -32,7 +32,7 @@ public class Method_02_Test {
             return people;
         }
 
-        // TODO redéfinir la méthode String format()
+        // TODO redéfinir la méthode String  format()
         // TODO la méthode retourne une chaîne de la forme DaoA[<nb_personnes> persons]
         // TODO exemple de résultat : "DaoA[14 persons]", "DaoA[30 persons]"
         // TODO l'implémentation réutilise la méthode format() de l'interface
