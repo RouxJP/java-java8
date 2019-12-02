@@ -9,6 +9,13 @@ public class Person {
 
     public Person() {
     }
+    
+    public Person( Integer age) {
+        this.firstname = "first_" + age;
+        this.lastname = "last_"+ age;;
+        this.age = age;
+        this.password = "pass_" + age;
+     }
 
     public Person(String firstname, String lastname, Integer age, String password) {
         this.firstname = firstname;
