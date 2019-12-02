@@ -10,11 +10,11 @@ import java.util.function.IntBinaryOperator;
 public class Function_07_Test {
 
     // tag::format[]
-    // TODO compléter la méthode pour qu'elle renvoie une chaîne de caractères de la forme "(<nb1><symbol><nb2>)=<resultat>"
+    // TODO compléter la méthode pour qu'elle renvoie une chaîne de caractères de la forme 
+	// "(<nb1><symbol><nb2>)=<resultat>"
     // TODO ex. "(10+11)=21", "(5-2)=3"
     String format(int nb1, int nb2, String symbol, IntBinaryOperator operator) {
-        // TODO
-        return null;
+        return "(" + nb1 +  symbol +nb2+")=" +  operator.applyAsInt(nb1, nb2) ;
     }
     // end::format[]
 
@@ -24,7 +24,14 @@ public class Function_07_Test {
     @Test
     public void test_format_sum() throws Exception {
 
-        String result = format(12, 13, "+", sum);
+        String result = format(12, 13, "+", sum = new IntBinaryOperator() {
+
+			@Override
+			public int applyAsInt(int left, int right) {
+				return left + right;
+			}
+        	
+        });
 
         assert result.equals("(12+13)=25");
     }

@@ -10,18 +10,18 @@ public class Person {
     public Person() {
     }
     
-    public Person( Integer age) {
-        this.firstname = "first_" + age;
-        this.lastname = "last_"+ age;;
-        this.age = age;
-        this.password = "pass_" + age;
-     }
+    public Person( Person p1, Person p2) {
+        this.firstname 	= p1.firstname + " " + p2.firstname;
+        this.lastname 	= p1.lastname;
+        this.age 		= 0;
+        this.password 	= null;
+    }
 
     public Person(String firstname, String lastname, Integer age, String password) {
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.age = age;
-        this.password = password;
+        this.firstname 	= firstname;
+        this.lastname 	= lastname;
+        this.age 		= age;
+        this.password 	= password;
     }
 
     public String getFirstname() {

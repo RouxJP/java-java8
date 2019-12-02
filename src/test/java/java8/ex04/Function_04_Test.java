@@ -14,6 +14,7 @@ import java.util.function.Predicate;
 public class Function_04_Test {
 
     // tag::filterMethod[]
+	//* La classe utilise un générique <T> uniquement applicable pour la fonction filter 
     <T> List<T> filter(List<T> list, Predicate<T> predicate) {
         List<T> result = new ArrayList<>();
         for (T el : list) {
@@ -30,7 +31,16 @@ public class Function_04_Test {
     // tag::adult[]
     // TODO Compléter la fonction
     // TODO AGE >=18
-    Predicate<Person> adult = null;
+ /*   Predicate<Person> adult = new Predicate<Person>() {
+
+		@Override
+		public boolean test(Person t) {
+			return t.getAge() >= 18;
+		}
+    	
+    };*/
+    Predicate<Person> adult = t-> t.getAge()>= 18  ;
+    
     // end::adult[]
 
     @Test
@@ -39,7 +49,7 @@ public class Function_04_Test {
         List<Person> personList = Data.buildPersonList();
 
         // TODO invoquer la méthode filter pour que le test soit passant
-        List<Person> result = null;
+        List<Person> result = filter( personList, adult);
 
         assert result.size() == 4;
 
@@ -65,7 +75,7 @@ public class Function_04_Test {
 
         // TODO invoquer la méthode filter pour que le test soit passant
         // TODO chaîner les prédicats adult, lastnameIsFrance et firstnameIsArmor avec la méthode and
-        List<Person> result = null;
+        List<Person> result = this.filter( this.filter(this.filter( personList, adult), lastnameIsFrance),firstnameIsArmor);
 
         assert result.size() == 1;
         assert result.get(0).getFirstname().equals("Armor");
