@@ -3,10 +3,9 @@ package java8.ex02;
 import java8.data.Data;
 import java8.data.domain.Customer;
 import java8.data.domain.Order;
-import java8.data.domain.Pizza;
 import org.junit.Test;
 
-import java.util.IntSummaryStatistics;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -24,8 +23,7 @@ public class Stream_02_Test {
         List<Order> orders = new Data().getOrders();
 
         // Trouver la liste des clients ayant déjà passés une commande
-        List<Customer> result = null;
-
+        List<Customer> result = orders.stream().map( o -> o.getCustomer()).distinct().collect( Collectors.toList());
         assertThat(result, hasSize(2));
     }
 }
